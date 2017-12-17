@@ -51,7 +51,8 @@ export CP_LOG_DIR="${WORKSPACE:-${DEVTOOLS}}/logs/configProcessor"
 [[ ! -d "${VAGRANT_LOG_DIR}" ]] && mkdir -p "${VAGRANT_LOG_DIR}"
 [[ ! -d "${CP_LOG_DIR}" ]] && mkdir -p "${CP_LOG_DIR}"
 
-export VAGRANT_DEFAULT_PROVIDER=libvirt
+: ${VAGRANT_DEFAULT_PROVIDER:=libvirt}
+export VAGRANT_DEFAULT_PROVIDER
 
 export ARDANA_SUBUNIT_VENV=$DEVTOOLS/tools/venvs/subunit
 export ARDANA_RUN_SUBUNIT_OUTPUT=${WORKSPACE:-$PWD}/ardanarun.subunit
