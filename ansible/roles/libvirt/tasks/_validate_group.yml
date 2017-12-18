@@ -29,6 +29,10 @@
   when: not ( user_groups.stdout | search("libvirtd") ) and ansible_os_family | lower == "debian" 
 
 - name: libvirt | _validate_group | Validate user is libvirt group
+  debug:
+    msg: "{{ ansible_os_family.split(' ')[0] | lower | replace('open','') == 'suse' }}"
+
+- name: libvirt | _validate_group | Validate user is libvirt group
   fail:
     msg: "User is not in the libvirt group, you may need to logout and in again"
   when: not ( user_groups.stdout | search("libvirt") ) and ansible_os_family.split(' ')[0] | lower | replace('open','') == "suse"

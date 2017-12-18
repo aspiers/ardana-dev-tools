@@ -19,7 +19,11 @@
 
 - include: ../../../roles/apt-repos/tasks/_check_apt.yml
   tags: libvirt-package-install
+
+- debug:
+    msg: wtf
+
 - include: _install_package.yml
-  tags: libvirt-package-install
+#  tags: libvirt-package-install
 - include: _add_group.yml
   tags: libvirt-group-add
